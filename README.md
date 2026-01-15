@@ -1,4 +1,4 @@
-<div align="center">
+git commit -m "Add application screenshots"<div align="center">
 
 # 🏪 Store Rating Platform
 
