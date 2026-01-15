@@ -215,6 +215,51 @@ npm test -- --coverage      # With coverage
 
 ---
 
+## 📸 Screenshots
+
+### Authentication
+<div align="center">
+<img src="screenshots/login.png" alt="Login Page" width="45%">
+<img src="screenshots/register.png" alt="Register Page" width="45%">
+</div>
+
+### Admin Dashboard
+<div align="center">
+<img src="screenshots/admin-dashboard.png" alt="Admin Dashboard" width="90%">
+</div>
+
+### User Management (Admin)
+<div align="center">
+<img src="screenshots/admin-users.png" alt="User Management" width="90%">
+</div>
+
+### Store Management (Admin)
+<div align="center">
+<img src="screenshots/admin-stores.png" alt="Store Management" width="90%">
+</div>
+
+### Store Owner Dashboard
+<div align="center">
+<img src="screenshots/owner-dashboard.png" alt="Owner Dashboard" width="90%">
+</div>
+
+### Store Listing (Normal User)
+<div align="center">
+<img src="screenshots/user-stores.png" alt="Store Listing" width="90%">
+</div>
+
+### Store Detail & Rating (Normal User)
+<div align="center">
+<img src="screenshots/user-store-detail.png" alt="Store Detail" width="90%">
+</div>
+
+### Password Update
+<div align="center">
+<img src="screenshots/password-update.png" alt="Password Update" width="90%">
+</div>
+
+---
+
 ## 📁 Project Structure
 
 ```
