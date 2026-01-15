@@ -8,13 +8,23 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-app-name.vercel.app'] // Update this with your actual Vercel URL
+    : ['http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Basic health check route
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
+});
+
+// API health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', message: 'Store Rating Platform API is running' });
 });
 
 // Import routes
