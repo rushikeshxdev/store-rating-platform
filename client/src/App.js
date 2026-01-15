@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
+// Landing page
+import LandingPage from './pages/LandingPage';
+
 // Auth pages
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -27,6 +30,9 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
+          {/* Landing page */}
+          <Route path="/" element={<LandingPage />} />
+
           {/* Public routes */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -87,9 +93,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          {/* Default redirect */}
-          <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
     </AuthProvider>
