@@ -1,5 +1,3 @@
-git commit -m "Add application screenshots"<div align="center">
-
 # 🏪 Store Rating Platform
 
 **Full-stack web application for store ratings with role-based access control**
@@ -302,8 +300,8 @@ store-rating-platform/
 **Rushikesh Bapu Randive**
 
 [![GitHub](https://img.shields.io/badge/GitHub-rushikeshxdev-181717?style=flat-square&logo=github)](https://github.com/rushikeshxdev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-rushikeshnandre-0077B5?style=flat-square&logo=linkedin)](https://linkedin.com/in/rushikeshnandre)
-[![Email](https://img.shields.io/badge/Email-rushirandive09@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:rushirandive09@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rushikeshrandive-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/rushikeshrandive12/)
+[![Email](https://img.shields.io/badge/Email-rushirandive31@gmail.com-D14836?style=flat-square&logo=gmail)](mailto:rushirandive31@gmail.com)
 
 ---
 
