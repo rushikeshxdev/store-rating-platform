@@ -51,7 +51,7 @@ const RegisterPage = () => {
       newErrors.password = 'Password must not exceed 16 characters';
     } else if (!/[A-Z]/.test(values.password)) {
       newErrors.password = 'Password must contain at least one uppercase letter';
-    } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(values.password)) {
+    } else if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(values.password)) {
       newErrors.password = 'Password must contain at least one special character';
     }
 

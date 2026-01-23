@@ -32,7 +32,7 @@ const PasswordUpdatePage = () => {
       newErrors.newPassword = 'Password must not exceed 16 characters';
     } else if (!/[A-Z]/.test(values.newPassword)) {
       newErrors.newPassword = 'Password must contain at least one uppercase letter';
-    } else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(values.newPassword)) {
+    } else if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(values.newPassword)) {
       newErrors.newPassword = 'Password must contain at least one special character';
     }
 

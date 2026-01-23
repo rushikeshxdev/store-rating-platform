@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { storeService } from '../services/storeService';
@@ -24,11 +24,7 @@ const UserStoresPage = () => {
     direction: 'asc',
   });
 
-  useEffect(() => {
-    fetchStores();
-  }, [search, sorting]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const fetchStores = async () => {
+  const fetchStores = useCallback(async () => {
     try {
       setLoading(true);
       setError('');
@@ -39,7 +35,11 @@ const UserStoresPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [search, sorting]);
+
+  useEffect(() => {
+    fetchStores();
+  }, [fetchStores]);
 
   const handleSearchChange = (e) => {
     const { name, value } = e.target;
