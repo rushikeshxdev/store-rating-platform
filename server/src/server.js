@@ -8,10 +8,16 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const allowedOrigins = process.env.NODE_ENV === 'production' 
+  ? [
+      'https://store-rating-platform-ruddy.vercel.app',
+      'https://store-rating-platform-so19.onrender.com',
+      process.env.FRONTEND_URL
+    ].filter(Boolean) // Remove any undefined values
+  : ['http://localhost:3000'];
+
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-app-name.vercel.app'] // Update this with your actual Vercel URL
-    : ['http://localhost:3000'],
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json());

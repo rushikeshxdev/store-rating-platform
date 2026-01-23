@@ -24,9 +24,17 @@ const RatingInput = ({ currentRating, onSubmit, disabled = false }) => {
         setMessage({ type: '', text: '' });
       }, 3000);
     } catch (error) {
+      let errorMessage = 'Failed to submit rating';
+      
+      if (error.response?.status === 403) {
+        errorMessage = 'Permission denied. Only normal users can submit ratings. Please logout and login with a normal user account.';
+      } else if (error.response?.data?.error?.message) {
+        errorMessage = error.response.data.error.message;
+      }
+      
       setMessage({ 
         type: 'error', 
-        text: error.response?.data?.error?.message || 'Failed to submit rating' 
+        text: errorMessage
       });
     } finally {
       setIsSubmitting(false);

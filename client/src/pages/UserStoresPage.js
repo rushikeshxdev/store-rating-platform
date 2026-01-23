@@ -26,7 +26,7 @@ const UserStoresPage = () => {
 
   useEffect(() => {
     fetchStores();
-  }, [search, sorting]);
+  }, [search, sorting]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchStores = async () => {
     try {
@@ -135,9 +135,19 @@ const UserStoresPage = () => {
               <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded">
                 User
               </span>
+              {/* Debug: Show current user role */}
+              <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-mono rounded">
+                Role: {user?.role || 'Unknown'}
+              </span>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-gray-700">{user?.name}</span>
+              <Link
+                to="/debug"
+                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 text-sm"
+              >
+                Debug
+              </Link>
               <Link
                 to="/password-update"
                 className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
@@ -162,6 +172,25 @@ const UserStoresPage = () => {
           <h2 className="text-3xl font-bold text-gray-800">Browse Stores</h2>
           <p className="text-gray-600 mt-2">Discover stores and share your ratings</p>
         </div>
+
+        {/* Role Warning */}
+        {user?.role !== 'NORMAL_USER' && (
+          <div className="mb-6 p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded">
+            <div className="flex items-center">
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              <div>
+                <strong>Role Mismatch:</strong> You are logged in as <strong>{user?.role}</strong>. 
+                Only <strong>NORMAL_USER</strong> accounts can submit ratings. 
+                <br />
+                <span className="text-sm">
+                  Please logout and login with a normal user account (e.g., alice@test.com / User@123) to submit ratings.
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Error Message */}
         {error && (
