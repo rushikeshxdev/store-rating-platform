@@ -16,6 +16,10 @@ const allowedOrigins = process.env.NODE_ENV === 'production'
     ].filter(Boolean) // Remove any undefined values
   : ['http://localhost:3000'];
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('Allowed CORS origins:', allowedOrigins);
+console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
+
 app.use(cors({
   origin: allowedOrigins,
   credentials: true
