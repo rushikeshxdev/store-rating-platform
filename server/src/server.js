@@ -23,9 +23,12 @@ console.log('CORS_ORIGIN:', process.env.CORS_ORIGIN);
 console.log('Allowed CORS origins:', allowedOrigins);
 console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
 
+// Middleware - Temporary fix for CORS
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
+  origin: true, // Allow all origins temporarily
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
