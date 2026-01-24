@@ -7,29 +7,8 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
-const allowedOrigins = process.env.CORS_ORIGIN === '*' 
-  ? true // Allow all origins
-  : process.env.NODE_ENV === 'production' 
-    ? [
-        'https://store-rating-platform-ruddy.vercel.app',
-        'https://store-rating-platform-xo3.onrender.com',
-        process.env.FRONTEND_URL
-      ].filter(Boolean)
-    : ['http://localhost:3000'];
-
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('CORS_ORIGIN:', process.env.CORS_ORIGIN);
-console.log('Allowed CORS origins:', allowedOrigins);
-console.log('FRONTEND_URL:', process.env.FRONTEND_URL);
-
-// Middleware - Temporary fix for CORS
-app.use(cors({
-  origin: true, // Allow all origins temporarily
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// Simple CORS - Allow everything for now
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
