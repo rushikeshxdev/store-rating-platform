@@ -13,7 +13,7 @@ const allowedOrigins = process.env.CORS_ORIGIN === '*'
   : process.env.NODE_ENV === 'production' 
     ? [
         'https://store-rating-platform-ruddy.vercel.app',
-        'https://store-rating-platform-so19.onrender.com',
+        'https://store-rating-platform-xo3.onrender.com',
         process.env.FRONTEND_URL
       ].filter(Boolean)
     : ['http://localhost:3000'];
